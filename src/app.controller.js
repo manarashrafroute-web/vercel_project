@@ -17,6 +17,12 @@ export default (app) => {
     app.use("/users", userController)
     app.use("/notes", noteController)
 
+      app.get("/",(req, res) => {
+        res.status(200).json({
+            message: "Hello"
+        })
+    })
+
     app.use((err, req, res, next) => {
         res.status(err.cause || 500).json({
             message: err.message,
